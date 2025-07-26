@@ -8,20 +8,19 @@ import java.io.File;
 import java.util.Random;
 
 public class todalamierdavaairaqui extends JFrame implements ActionListener {
-    JButton ralseiButt;
-    JButton tiendaB1;
-    JButton tiendaB2;
-    JButton tiendaB3;
-    JLabel mensaje;
-    JLabel puntos;
-    JLabel mentiEstosSonLosPuntosReales;
-    JLabel tiendaL1;
-    JLabel tiendaL2;
-    JLabel tiendaL3;
-    JLabel ralseiLabel;
-    JLabel borde;
-    JLabel bgCastleTown;
-    JLabel ribbonShow;
+    JButton ralseiButt; //botón para hacer clic en Ralsei
+    JButton tiendaB1; //botón del primer item de la tienda (ribbon)
+    JButton tiendaB2; //botón del segundo item de la tienda (jevilstail)
+    JButton tiendaB3; //botón del tercer item de la tienda (dealmaker)
+    JLabel puntos; //la parte del label que dice "puntos:"
+    JLabel mentiEstosSonLosPuntosReales; //la parte del label que en realidad enseña los puntos
+    JLabel tiendaL1; //label del primer item de la tienda (ribbon)
+    JLabel tiendaL2; //label del segundo item de la tienda (jevilstail)
+    JLabel tiendaL3; //label del tercer item de la tienda (dealmaker)
+    JLabel ralseiLabel; //label de ralsei, hace que se eneseñe el peluche
+    JLabel borde; //label de los marcos del texto
+    JLabel bgCastleTown; //se llama castletown pero realmente es el fondo del juego (por eso "bg", de "BackGround")
+    JLabel ribbonShow; //todos estos son labels que hacen al item ribbon visible
     JLabel ribbonShow2;
     JLabel ribbonShow3;
     JLabel ribbonShow4;
@@ -31,42 +30,41 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
     JLabel ribbonShow8;
     JLabel ribbonShow9;
     JLabel ribbonShow10;
-    JLabel jevilstailShow;
-    JLabel dealmakerShow;
-    JLabel info;
-    JLabel info2;
-    JLabel tiendaTitulo;
-    JLabel wdArmando;
-    int armando;
-    int points;
-    int ribbon;
-    int jevilstail;
-    int dealmaker;
+    JLabel jevilstailShow; //label que hace el item jevilstail visible
+    JLabel dealmakerShow; //label que hace el item dealmaker visible
+    JLabel info; //label que presenta la primera línea de texto de la caja de información
+    JLabel info2; //label que presenta la segunda linea de texto de la caja de información
+    JLabel tiendaTitulo; // label que solo dice "tienda" en la parte superior de la tienda
+    JLabel wdArmando; //👆🏻👇🏻👈🏻👉🏻👆🏻☝🏻🤙🏻🏻👉🏻👆🏻☝🏻🤙🏻🖐🏻🖖🏻👉🏻
+    int armando; //👆🏻👇🏻👉🏻👈🏻👈🏻☝🏻👇🏻👈🏻🏻☝🏻👇🏻👈🏻👉🏻👆🏻☝🏻🤙
+    int points; //seguimiento de los puntos con una variable
+    int ribbon; //indica si el ribbon está habilitado o no
+    int jevilstail; //indica si el jevilstail está habilitado o no
+    int dealmaker; //indica si el dealmaker está habilitado o no
 
-    String funcionPeak(){
+    String funcionPeak(){ //esencia
         return "peak";
     }
 
     public todalamierdavaairaqui(){
-        setTitle(funcionPeak());
-        setSize(975,720);
-        this.setResizable(false);
-        setLocationRelativeTo(null);
-        setBackground(Color.black);
-        setForeground(Color.WHITE);
+        setTitle(funcionPeak()); //establece el titulo de la ventana
+        setSize(975,720); //establece el tamaño de la ventana
+        this.setResizable(false); //impide la ventana de tener su tamaño cambiable
+        setLocationRelativeTo(null); //crea la ventana en el medio
+        setBackground(Color.black); //background negro por si acaso
+        setForeground(Color.WHITE); //letras blancas por default... esto no funcionó though
 
-        mensaje = new JLabel("");
-        puntos = new JLabel("puntos:");
-        mentiEstosSonLosPuntosReales = new JLabel("0");
-        tiendaL1 = new JLabel("Ribbon             50 pt");
-        tiendaL2 = new JLabel("Jevilstail  200 pt");
-        tiendaL3 = new JLabel("Dealmaker  1000 pt");
-        ralseiLabel = new JLabel("");
-        borde = new JLabel("");
-        bgCastleTown = new JLabel("");
-        wdArmando = new JLabel("");
-        armando = 0;
-        ribbonShow = new JLabel("");
+        puntos = new JLabel("puntos:"); //inicar el label que dice "puntos: "
+        mentiEstosSonLosPuntosReales = new JLabel("0"); //iniciar el label que presenta el seguimiento de cantidad de puntos
+        tiendaL1 = new JLabel("Ribbon             50 pt"); //iniciar el label que presenta el item 1 de la tienda
+        tiendaL2 = new JLabel("Jevilstail  200 pt"); //iniciar el label que presenta el item 2 de la tienda
+        tiendaL3 = new JLabel("Dealmaker  1000 pt"); //iniciar el label que presenta el item 3 de la tienda
+        ralseiLabel = new JLabel(""); //iniciar el label del peluche Ralsei
+        borde = new JLabel(""); //iniciar el label del marco de texto
+        bgCastleTown = new JLabel(""); //iniciar el label del fondo
+        wdArmando = new JLabel(""); //👈🏻👉🏻👆🏻☝🏻🤙🏻🏻👉👇🏻👈🏻🏻☝🏻👇🏻👈🏻👉🏻👆
+        armando = 0; // 👉🏻👆🏻☝🏻🤙🏻🖐🏻🖖🏻👉🏻☝🏻👇🏻👈🏻🏻☝🏻👇🏻
+        ribbonShow = new JLabel(""); //iniciar el label que hace a los ribbons visibles
         ribbonShow2 = new JLabel("");
         ribbonShow3 = new JLabel("");
         ribbonShow4 = new JLabel("");
@@ -76,34 +74,34 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
         ribbonShow8 = new JLabel("");
         ribbonShow9 = new JLabel("");
         ribbonShow10 = new JLabel("");
-        jevilstailShow = new JLabel("");
-        dealmakerShow = new JLabel("");
-        info = new JLabel("*");
-        info2 = new JLabel("");
-        tiendaTitulo = new JLabel("Tienda");
-        ralseiButt = new JButton("");
-        ralseiButt.addActionListener(this);
-        ralseiButt.setRolloverEnabled(false);
-        ralseiButt.setContentAreaFilled(false);
-        tiendaB1 = new JButton("");
-        tiendaB1.addActionListener(this);
-        tiendaB1.setRolloverEnabled(false);
-        tiendaB1.setContentAreaFilled(false);
-        tiendaB2 = new JButton("");
-        tiendaB2.addActionListener(this);
-        tiendaB2.setRolloverEnabled(false);
-        tiendaB2.setContentAreaFilled(false);
-        tiendaB3 = new JButton("");
-        tiendaB3.addActionListener(this);
-        tiendaB3.setRolloverEnabled(false);
-        tiendaB3.setContentAreaFilled(false);
-        points = 0;
-        ribbon = 0;
-        jevilstail = 1;
-        dealmaker = 1;
+        jevilstailShow = new JLabel(""); //iniciar el label que hace el jebilstail visible
+        dealmakerShow = new JLabel(""); //iniciar el label que hace el dealmaker visible
+        info = new JLabel("*"); //iniciar el label de texto informativo fila 1
+        info2 = new JLabel(""); //iniciar el label de texto informativo fila 2
+        tiendaTitulo = new JLabel("Tienda"); //iniciar el label que literalmente dice solo "tienda" en la cima de la tienda
+        ralseiButt = new JButton(""); //iniciar el botón de clic a Ralsei (ES RALSEI "BUTTON", NO RALSEI "BUTT")
+        ralseiButt.addActionListener(this); //darle un listener al botón de ralsei
+        ralseiButt.setRolloverEnabled(false); //desactivar el parpadeo de cuando pasas el mouse sobre el botón
+        ralseiButt.setContentAreaFilled(false); //desactivar el parpadeo de cuando cliqueas el botón
+        tiendaB1 = new JButton(""); //iniciar el botón que permite darle clic al item 1 de la tienda
+        tiendaB1.addActionListener(this); //darle un listener al botón de item 1 de la tienda 
+        tiendaB1.setRolloverEnabled(false); //desactivar el parpadeo de cuando pasas el mouse sobre el botón
+        tiendaB1.setContentAreaFilled(false); //desactivar el parpadeo de cuando cliqueas el botón
+        tiendaB2 = new JButton("");//iniciar el botón que permite darle clic al item 2 de la tienda
+        tiendaB2.addActionListener(this); //darle un listener al botón de item 2 de la tienda 
+        tiendaB2.setRolloverEnabled(false); //desactivar el parpadeo de cuando pasas el mouse sobre el botón
+        tiendaB2.setContentAreaFilled(false); //desactivar el parpadeo de cuando cliqueas el botón
+        tiendaB3 = new JButton(""); //iniciar el botón que permite darle clic al item 3 de la tienda
+        tiendaB3.addActionListener(this); //darle un listener al botón de item 3 de la tienda
+        tiendaB3.setRolloverEnabled(false); //desactivar el parpadeo de cuando pasas el mouse sobre el botón
+        tiendaB3.setContentAreaFilled(false); //desactivar el parpadeo de cuando cliqueas el botón
+        points = 0; //iniciar el seuguimiento de puntos en variable int
+        ribbon = 0; //iniciar la variable que habilita el ribbon
+        jevilstail = 1; //iniciar la variable que habilita el jevilstail
+        dealmaker = 1; //iniciar la variable que habilita el dealmaker
 
-        tiendaB1.addMouseListener(new java.awt.event.MouseAdapter() { //estos son los hovers, no hago idea como iríann en una función
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
+        tiendaB1.addMouseListener(new java.awt.event.MouseAdapter() { //estos son los hovers, no hago idea como irían en una función
+            public void mouseEntered(java.awt.event.MouseEvent evt) { //esto hace que cuando pasas el mouse por encima del item 1, te da info sobre él
                 info.setText("*Un lindo moño rosado");
                 info2.setText("(+1 punto por clic)");
             }
@@ -134,7 +132,7 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
             }
         });
 
-        tiendaB3.addMouseListener(new java.awt.event.MouseAdapter() { //Spamton on-hover
+        tiendaB3.addMouseListener(new java.awt.event.MouseAdapter() { //dealmaker on-hover
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 if(dealmaker == 1) {
                     info.setText("*Un estiloso par de lentes");
@@ -155,17 +153,16 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
             }
         });
 
-        String localDir = System.getProperty("user.dir"); //esto obtiene la localización del ejecutable dentro de la pc
-        File fileFuente = new File(localDir + "\\src\\resources\\determination.ttf");
+        String localDir = System.getProperty("user.dir"); //esto obtiene la localización del proyecto dentro de la pc
+        File fileFuente = new File(localDir + "\\src\\resources\\determination.ttf"); //esto obtiene la fuente dentro de la pc
 
         try {
             Font font = Font.createFont(Font.TRUETYPE_FONT,
                     new File(String.valueOf(fileFuente)));
-            font = font.deriveFont(Font.PLAIN, 40); //Establece la fuente para todos los labels con letras
+            font = font.deriveFont(Font.PLAIN, 40); //Establece la fuente y color para todos los labels con letras
             tiendaL1.setFont(font);
             tiendaL2.setFont(font);
             tiendaL3.setFont(font);
-            mensaje.setFont(font);
             puntos.setFont(font);
             info.setFont(font);
             info2.setFont(font);
@@ -174,7 +171,6 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
             tiendaL1.setForeground(Color.white);
             tiendaL2.setForeground(Color.white);
             tiendaL3.setForeground(Color.white);
-            mensaje.setForeground(Color.white);
             puntos.setForeground(Color.white);
             info.setForeground(Color.white);
             info2.setForeground(Color.white);
@@ -194,24 +190,24 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
         File bord = new File(localDir + "\\src\\resources\\borde.png"); //Acá comienza mi verguero de imágenes
         ImageIcon borda = new ImageIcon(String.valueOf(bord));
         borde.setIcon(borda);
-        borde.setBounds(0, 152, borda.getIconWidth(), borda.getIconHeight());
+        borde.setBounds(0, 152, borda.getIconWidth(), borda.getIconHeight()); //esta es la imagen del marco
 
-        File armandoFile = new File(localDir + "\\src\\resources\\armando.png"); //Acá comienza mi verguero de imágenes
+        File armandoFile = new File(localDir + "\\src\\resources\\armando.png"); //👆🏻👇🏻👉🏻👈🏻☝🏻👇🏻👈🏻👉🏻👆🏻☝🏻🤙🏻🖐🏻🖖🏻👉🏻
         ImageIcon armandoImage = new ImageIcon(String.valueOf(armandoFile));
         wdArmando.setIcon(armandoImage);
         wdArmando.setBounds(0, 152, armandoImage.getIconWidth(), armandoImage.getIconHeight());
 
-        File bgFile = new File(localDir + "\\src\\resources\\battbg.gif");
+        File bgFile = new File(localDir + "\\src\\resources\\battbg.gif"); //imagen del fondo
         ImageIcon bgIcon = new ImageIcon(String.valueOf(bgFile));
         bgCastleTown.setIcon(bgIcon);
         bgCastleTown.setBounds(0, 0, bgIcon.getIconWidth(), bgIcon.getIconHeight());
 
-        File fileRales = new File(localDir + "\\src\\resources\\ralsei.png");
+        File fileRales = new File(localDir + "\\src\\resources\\ralsei.png"); //imagen de ralsei peluche
         ImageIcon ralesImagen = new ImageIcon(String.valueOf(fileRales));
         ralseiLabel.setIcon(ralesImagen);
         ralseiLabel.setBounds(130,120, ralesImagen.getIconWidth(), ralesImagen.getIconHeight());
 
-        File fileRibbon = new File(localDir + "\\src\\resources\\ribbon.png"); //mi crimen de guerra parte 1
+        File fileRibbon = new File(localDir + "\\src\\resources\\ribbon.png"); //mi crimen de guerra parte 1 (IMAGEN DE TODOS LOS RIBBONS)
         ImageIcon ribbonImagen = new ImageIcon(String.valueOf(fileRibbon));
         ribbonShow.setIcon(ribbonImagen);
         ribbonShow.setBounds(130,110, ribbonImagen.getIconWidth(), ribbonImagen.getIconHeight());
@@ -234,17 +230,17 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
         ribbonShow10.setIcon(ribbonImagen);
         ribbonShow10.setBounds(40,-115,ribbonImagen.getIconWidth(), ribbonImagen.getIconHeight());
 
-        File fileJevil = new File(localDir + "\\src\\resources\\jevilstail.png");
+        File fileJevil = new File(localDir + "\\src\\resources\\jevilstail.png"); //imagen del jevilstail
         ImageIcon jevilImagen = new ImageIcon(String.valueOf(fileJevil));
         jevilstailShow.setIcon(jevilImagen);
         jevilstailShow.setBounds(365,330, jevilImagen.getIconWidth(), jevilImagen.getIconHeight());
 
-        File fileDeal = new File(localDir + "\\src\\resources\\ralseidealmaker.png");
+        File fileDeal = new File(localDir + "\\src\\resources\\ralseidealmaker.png"); //imagen del dealmaker
         ImageIcon dealImagen = new ImageIcon(String.valueOf(fileDeal));
         dealmakerShow.setIcon(dealImagen);
         dealmakerShow.setBounds(130,120, dealImagen.getIconWidth(), dealImagen.getIconHeight());
 
-        tiendaL1.setBounds(640,270,300,50);
+        tiendaL1.setBounds(640,270,300,50); //establezco las posiciones y tamaños de los labels y botones de tienda
         tiendaB1.setBounds(640,270,300,50);
         tiendaL2.setBounds(640,340,300,50);
         tiendaB2.setBounds(640,340,300,50);
@@ -252,23 +248,23 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
         tiendaB3.setBounds(640,410,300,50);
         tiendaTitulo.setBounds(725,200,300,50);
 
-        info.setBounds(50,520,500,50);
+        info.setBounds(50,520,500,50); //establezco las posiciones y tamaños de los labels de información
         info2.setBounds(70,570,500,50);
 
-        puntos.setBounds(640,520,300,50);
+        puntos.setBounds(640,520,300,50); //establezco las posiciones y tamaños de los labels de puntos
         mentiEstosSonLosPuntosReales.setBounds(640,580,300,50);
-        ralseiButt.setBounds(130,120, ralesImagen.getIconWidth(), ralesImagen.getIconHeight());
+        ralseiButt.setBounds(130,120, ralesImagen.getIconWidth(), ralesImagen.getIconHeight()); //tamaño y posición del botón de Ralsei peluche
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLayout(null);
-        render();
-        if(armando != 100){
+        render(); //llamo la función render, que hace visible todas las imágenes y labels
+        if(armando != 100){ //👈🏻☝🏻👇🏻👈🏻!!!
             System.exit(0);
         }
         System.out.println("iniciado correctamente");
     }
 
-    public void render(){ //carga todos los labels
+    public void render(){ //carga todos los labels (y botones, aunque estén ocultos)
         System.out.println("renderizando...");
         this.setVisible(true);
         this.add(tiendaL1);
@@ -325,7 +321,7 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
         this.add(wdArmando);
     }
 
-    public void clear(){ //elimina todos los labels para refrescar correctamente
+    public void clear(){ //elimina todos los labels para refrescar correctamente cuando se agrega un item nuevo
         System.out.println("limpiando...");
         this.remove(tiendaL1);
         this.remove(tiendaL2);
@@ -359,19 +355,19 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) { //reacciones de cada botón al clic
         Random rand = new Random();
-        if(e.getSource()==ralseiButt){
+        if(e.getSource()==ralseiButt){ //esta es la función normal de cuando haces clic, para darte puntos
             if(rand.nextInt(10) == 1) { //chance de Jevil
-                points = points + ((1 + ribbon) * jevilstail * dealmaker);
+                points = points + ((1 + ribbon) * jevilstail * dealmaker); //esta es la fórmula que te da clics según los upgrades que tengas desbloqueados (incluye jevil)
                 System.out.println(points);
-                mentiEstosSonLosPuntosReales.setText(String.valueOf(points));
-                info.setText("* kapow!!!");
+                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza el label que enseña el puntaje
+                info.setText("* kapow!!!"); //texto para cuando haces clic
             } else {
-                points = points + ((100 + ribbon) * dealmaker);
+                points = points + ((1 + ribbon) * dealmaker); //esta es la fórmula que te da clics según los upgrades que tengas desbloqueados
                 System.out.println(points);
-                mentiEstosSonLosPuntosReales.setText(String.valueOf(points));
+                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza el bale que enseña el puntaje
                 int randmess = rand.nextInt(5);
                 if(randmess == 0){
-                    info.setText("* squish!"); //mensajes
+                    info.setText("* squish!"); //texto para cuando haces clic
                 } else if(randmess == 1){
                     info.setText("* squeak!");
                 } else if(randmess == 2){
@@ -383,24 +379,24 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
                 }
             }
         }
-        if(e.getSource()==tiendaB1){ //boton de comprar ribbon
+        if(e.getSource()==tiendaB1){ //botón de comprar ribbon
             if(points > 49){
-                ribbon++;
-                points -= 50;
-                mentiEstosSonLosPuntosReales.setText(String.valueOf(points));
+                ribbon++; //agrega un ribbon
+                points -= 50; //resta tus puntos luego de la compra
+                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza el label que enseña el puntaje
                 clear(); //vuelve a renderizar
                 this.revalidate();
                 this.repaint();
                 render();
             }
         }
-        if(e.getSource()==tiendaB2){ //boton de comprar jevil
+        if(e.getSource()==tiendaB2){ //botón de comprar jevil
             if(points > 199){
-                jevilstail = 4;
-                tiendaB2.setEnabled(false);
+                jevilstail = 4; //habilita jevil en la fórmula de clics
+                tiendaB2.setEnabled(false); //deshabilita poder comprar a otro jevilstail
                 tiendaB2.setVisible(false);
-                points -= 200;
-                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza los puntos
+                points -= 200; //resta tus puntos luego de la compra
+                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza el label que enseña el puntaje
                 tiendaL2.setText("");
                 clear(); //vuelve a renderizar
                 this.revalidate();
@@ -408,12 +404,12 @@ public class todalamierdavaairaqui extends JFrame implements ActionListener {
                 render();
             }
         }
-        if(e.getSource()==tiendaB3){ //boton de spamtonear
+        if(e.getSource()==tiendaB3){ //botón de spamtonear (comprar dealmaker)
             if(points > 999){
-                dealmaker = 2;
-                tiendaB3.setEnabled(false);
-                points -= 1000;
-                mentiEstosSonLosPuntosReales.setText(String.valueOf(points));
+                dealmaker = 2; //habilita dealmaker en la fórmula de clics
+                tiendaB3.setEnabled(false); //deshabilita poder comprar otro dealmaker
+                points -= 1000; //resta puntos luego de la compra
+                mentiEstosSonLosPuntosReales.setText(String.valueOf(points)); //actualiza el label que enseña el puntaje
                 tiendaL3.setText("");
                 clear(); //vuelve a renderizar
                 this.revalidate();
